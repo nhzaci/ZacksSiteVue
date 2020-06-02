@@ -25,6 +25,7 @@ Vue.use(VueRouter)
 ]
 
 const router = new VueRouter({
+  mode: 'hash',
   routes
 })
 
