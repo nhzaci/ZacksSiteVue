@@ -1,5 +1,5 @@
 <template>
-  <v-container class="ma-0 pa-0" style="background:#071a52; height:100%;" fluid>
+  <v-container class="ma-0 pa-0" style="background:#071a52;" fluid>
     <v-row align="center" no-gutters style="height:50%">
       
       <!-- Left column -->
@@ -37,16 +37,16 @@
       </v-col>
     </v-row>
 
-    <v-row class="pa-0" align="center" no-gutters style="height:50%">
+    <v-row 
+      class="pa-0" 
+      align="center" 
+      justify="center" 
+      no-gutters 
+      style="background:SteelBlue;"
+    >
 
       <!-- Left Column -->
       <v-col cols="12" md="6">
-        <v-parallax src="../assets/earth.jpg" height="600"></v-parallax>
-      </v-col>
-
-      <!-- Right Column -->
-      <v-col cols="12" md="6">
-        <v-row justify="center" align="center">
           <v-col>
             <v-card
               class="pa-5 ma-5 white--text"
@@ -73,8 +73,103 @@
               </v-card-text>
             </v-card>
           </v-col>
-        </v-row>
       </v-col>
+
+    </v-row>
+
+    <v-row justify="center">
+      <!-- Right Column -->
+      <v-col cols="12" md="10">
+        <v-card
+          class="pa-5 ma-5 white--text"
+          style="background:#1f4287"
+          tile
+          dark
+          elevation="10"
+        >
+          <v-card-title :class="titleClass">
+            My Education
+          </v-card-title>
+          <v-card-text>
+            <v-timeline
+              :dense="$vuetify.breakpoint.mdAndDown"
+            >
+              <!-- Undergrad -->
+              <v-timeline-item
+                color="orange darken-2"
+                fill-dot
+              >
+                <v-card>
+                  <v-card-title class="orange darken-2">
+                    <v-icon class="mx-2">mdi-library</v-icon>
+                    National University of Singapore
+                  </v-card-title>
+                  <v-container>
+                    <v-row>
+                      <v-col cols="12" md="10">
+                        <span class="font-weight-bold subtitle-1">
+                          Bachelor of Science (Business Analytics) 
+                          School of Computing
+                        </span>
+                        <p>
+                          Graduating 2023
+                        </p>
+                      </v-col>
+                    </v-row>
+                  </v-container>
+                </v-card>
+              </v-timeline-item>
+
+              <!-- High School -->
+              <v-timeline-item
+                color="green"
+                fill-dot
+              >
+                <v-card>
+                  <v-card-title :class="$vuetify.breakpoint.mdAndDown ? 'green justify-start' : 'green justify-end'">
+                    <v-icon class="mx-2">mdi-check-outline</v-icon>
+                    Catholic Junior College
+                  </v-card-title>
+                  <v-container>
+                    <v-row justify="end">
+                      <v-col cols="12" md="10" :class="$vuetify.breakpoint.mdAndDown ? 'text-start' : 'text-end'">
+                        <span class="font-weight-bold subtitle-1">
+                          GCE 'A' Levels
+                        </span>
+                        <p>Graduated 2016</p>
+                      </v-col>
+                    </v-row>
+                  </v-container>
+                </v-card>
+              </v-timeline-item>
+
+              <!-- Secondary School -->
+              <v-timeline-item
+                color="green"
+                fill-dot
+              >
+                <v-card>
+                  <v-card-title class="green">
+                    <v-icon class="mx-2">mdi-check-outline</v-icon>
+                    Holy Innocents' High School
+                  </v-card-title>
+                  <v-container>
+                    <v-row>
+                      <v-col cols="12" md="10">
+                        <span class="font-weight-bold subtitle-1">
+                          GCE 'O' Levels
+                        </span>
+                        <p>Graduated 2014</p>
+                      </v-col>
+                    </v-row>
+                  </v-container>
+                </v-card>
+              </v-timeline-item>
+            </v-timeline>
+          </v-card-text>
+        </v-card>
+      </v-col>
+
     </v-row>
   </v-container>
 </template>
@@ -85,11 +180,18 @@ export default {
   name: 'Home',
   data: () => ({
     languages: [
+      { name: 'Vue.js', icon: 'mdi-vuejs' },
+      { name: 'Nuxt.js', icon: 'mdi-nuxt' },
+      { name: 'Node.js', icon: 'mdi-nodejs' },
       { name: 'Java', icon: 'mdi-language-java' },
       { name: 'JavaScript', icon: 'mdi-language-javascript' },
-      { name: 'HTML 5', icon: 'mdi-language-html5' },
       { name: 'Python', icon: 'mdi-language-python' },
+      { name: 'R', icon: 'mdi-language-r' },
+      { name: 'HTML 5', icon: 'mdi-language-html5' },
+      { name: 'CSS', icon: 'mdi-language-css3' },
       { name: 'PHP', icon: 'mdi-language-php' },
+      { name: 'MySQL', icon: 'mdi-database-settings' },
+      { name: 'MongoDB', icon: 'mdi-database' },
     ]
   }),
   computed: {
