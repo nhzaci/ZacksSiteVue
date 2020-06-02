@@ -1,28 +1,50 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app
+    app
+    dark
+  >
+    <NavBar />
+
+    <NavDrawer />
+
+    <v-content>
+      <router-view></router-view>
+      <v-btn
+        fixed
+        fab
+        bottom
+        right
+        large
+        @click="navDrawerOpen=!navDrawerOpen"
+        color="orange darken-2"
+        class="hidden-md-and-up"
+      >
+        <v-icon color="white">mdi-menu</v-icon>
+      </v-btn>
+    </v-content>
+
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NavBar from './components/NavBar';
+import NavDrawer from './components/NavDrawer';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    NavBar,
+    NavDrawer
+  },
+  computed: {
+    navDrawerOpen: {
+      get () {
+        return this.$store.state.navDrawerOpen;
+      },
+      set (bool) {
+        this.$store.commit('set_navDrawerOpen', bool);
+      }
+    }
   }
-}
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
