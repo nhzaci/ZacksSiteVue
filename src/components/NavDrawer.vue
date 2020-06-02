@@ -1,39 +1,52 @@
 <template>
-    <v-navigation-drawer
-        app
-        dark
-        temporary
-        v-model="navDrawerOpen"
-        right
+    <v-overlay
+        :value="navDrawerOpen"
+        opacity=".6"
     >
-            <v-row class="fill-height" align="center">
-                <v-col>
-                    <v-list>
-                        <v-list-item
-                            link
-                            to="/"
-                        >
-                            <v-icon class="px-2">mdi-home</v-icon>
-                            Home
-                        </v-list-item>
-                        <v-list-item
-                            link
-                            to="/work"
-                        >
-                            <v-icon class="px-2">mdi-briefcase</v-icon>
-                            My Works
-                        </v-list-item>
-                        <v-list-item
-                            link
-                            to="/contact"
-                        >
-                            <v-icon class="px-2">mdi-message</v-icon>
-                            Contact Me
-                        </v-list-item>
-                    </v-list>
-                </v-col>
-            </v-row>
-    </v-navigation-drawer>
+        <v-row class="justify-center py-2">
+            <v-btn
+                link
+                to="/"
+                text
+                x-large
+                class="headline"
+            >
+                Home
+            </v-btn>
+        </v-row>
+        <v-row class="justify-center py-2">
+            <v-btn
+                link
+                to="/work"
+                text
+                class="headline"
+                x-large
+            >
+                My Works
+            </v-btn>
+
+        </v-row>
+        <v-row class="justify-center py-2">
+            <v-btn
+                link
+                to="/contact"
+                text
+                class="headline"
+                x-large
+            >
+                Contact Me
+            </v-btn>
+        </v-row>
+        <v-row class="justify-center py-2">
+            <v-btn
+                @click="navDrawerOpen=!navDrawerOpen"
+                icon
+                x-large
+            >
+                <v-icon>mdi-close</v-icon>
+            </v-btn>
+        </v-row>
+    </v-overlay>
 </template>
 
 <script>

@@ -7,6 +7,8 @@
         height="120px"
     >
 
+        <v-spacer class="hidden-md-and-up"></v-spacer>
+
         <v-toolbar-title
             class="white--text"
         >

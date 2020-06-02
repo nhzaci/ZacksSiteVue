@@ -33,10 +33,11 @@
 
       <!-- Right Column -->
       <v-col cols="12" md="6">
-        <v-parallax src="../assets/computers.jpg" height="600"></v-parallax>
+        <v-parallax src="../assets/computers.jpg" height="600" style="background-size:cover"></v-parallax>
       </v-col>
     </v-row>
 
+    <!-- Skills -->
     <v-row 
       class="pa-0" 
       align="center" 
@@ -45,7 +46,6 @@
       style="background:SteelBlue;"
     >
 
-      <!-- Left Column -->
       <v-col cols="12" md="6">
           <v-col>
             <v-card
@@ -54,29 +54,59 @@
               tile
               elevation="10"
             >
-              <v-card-title :class="titleClass">
+              <v-card-title 
+                :class="titleClass"
+              >
                 My Skills
               </v-card-title>
+
+              <!-- Skills card text -->
               <v-card-text>
-                <v-list elevation="5">
-                  <v-list-item v-for="lang in languages" :key="lang.icon">
-                    <v-list-item-icon>
-                      <v-icon>
-                        {{ lang.icon }} 
-                      </v-icon>
-                    </v-list-item-icon>
-                    <v-list-item-content>
-                      {{ lang.name }}
-                    </v-list-item-content>
-                  </v-list-item>
-                </v-list>
+                <v-container class="ma-0 pa-0">
+                  <v-row class="ma-0 pa-0">
+
+                    <!-- Left list -->
+                    <v-col cols="6">
+                      <v-list elevation="5">
+                        <v-list-item v-for="lang in languages" :key="lang.icon">
+                          <v-list-item-icon>
+                            <v-icon>
+                              {{ lang.icon }} 
+                            </v-icon>
+                          </v-list-item-icon>
+                          <v-list-item-content>
+                            {{ lang.name }}
+                          </v-list-item-content>
+                        </v-list-item>
+                      </v-list>
+                    </v-col>
+
+                    <!-- Right List --> 
+                    <v-col cols="6">
+                      <v-list elevation="5">
+                        <v-list-item v-for="lang in languages2" :key="lang.icon">
+                          <v-list-item-icon>
+                            <v-icon>
+                              {{ lang.icon }} 
+                            </v-icon>
+                          </v-list-item-icon>
+                          <v-list-item-content>
+                            {{ lang.name }}
+                          </v-list-item-content>
+                        </v-list-item>
+                      </v-list>
+                    </v-col>
+                  </v-row>
+                </v-container>
               </v-card-text>
+              <!-- End of Skills card text -->
+
             </v-card>
           </v-col>
       </v-col>
-
     </v-row>
 
+    <!-- Education -->
     <v-row justify="center">
       <!-- Right Column -->
       <v-col cols="12" md="10">
@@ -186,6 +216,9 @@ export default {
       { name: 'Java', icon: 'mdi-language-java' },
       { name: 'JavaScript', icon: 'mdi-language-javascript' },
       { name: 'Python', icon: 'mdi-language-python' },
+      { name: 'Tableau', icon: 'mdi-view-dashboard' },
+    ],
+    languages2: [
       { name: 'R', icon: 'mdi-language-r' },
       { name: 'HTML 5', icon: 'mdi-language-html5' },
       { name: 'CSS', icon: 'mdi-language-css3' },
