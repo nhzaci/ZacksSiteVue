@@ -7,6 +7,7 @@
             <v-btn
                 link
                 to="/"
+                @click="navDrawerOpen=!navDrawerOpen"
                 text
                 x-large
                 class="headline"
@@ -18,6 +19,7 @@
             <v-btn
                 link
                 to="/work"
+                @click="navDrawerOpen=!navDrawerOpen"
                 text
                 class="headline"
                 x-large
@@ -30,6 +32,7 @@
             <v-btn
                 link
                 to="/contact"
+                @click="navDrawerOpen=!navDrawerOpen"
                 text
                 class="headline"
                 x-large
