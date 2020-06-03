@@ -19,7 +19,7 @@
         large
         @click="navDrawerOpen=!navDrawerOpen"
         color="orange darken-2"
-        class="hidden-md-and-up"
+        class="hidden-md-and-up mb-7 me-5"
       >
         <v-icon color="white">mdi-menu</v-icon>
       </v-btn>

@@ -127,10 +127,15 @@
               
                 <v-card class="my-3" tile>
                   <v-card-title class="orange darken-2">
-                    <span class="text-truncate">
-                      <v-icon class="mx-2">mdi-library</v-icon>
-                      National University of Singapore
-                    </span>
+                    <v-tooltip bottom>
+                        <template v-slot:activator="{ on }">
+                            <span v-on="on" @click="on" class="text-truncate">
+                                <v-icon class="mx-2">mdi-library</v-icon>
+                                National University of Singapore
+                            </span>
+                        </template>
+                        <span>National University of Singapore</span>
+                    </v-tooltip>
                   </v-card-title>
                   <v-container>
                     <v-row>
@@ -149,10 +154,15 @@
 
                 <v-card class="my-3" tile>
                   <v-card-title class="green">
-                    <span class="text-truncate">
-                      <v-icon class="mx-2">mdi-check-outline</v-icon>
-                      Catholic Junior College
-                    </span>
+                    <v-tooltip bottom>
+                        <template v-slot:activator="{ on }">
+                            <span v-on="on" @click="on" class="text-truncate">
+                                <v-icon class="mx-2">mdi-check-outline</v-icon>
+                                Catholic Junior College
+                            </span>
+                        </template>
+                        <span>Catholic Junior College</span>
+                    </v-tooltip>
                   </v-card-title>
                   <v-container>
                     <v-row>
@@ -168,10 +178,15 @@
 
                 <v-card class="my-3" tile>
                   <v-card-title class="green">
-                    <span class="text-truncate">
-                      <v-icon class="mx-2">mdi-check-outline</v-icon>
-                      Holy Innocents' High School
-                    </span>
+                    <v-tooltip bottom>
+                        <template v-slot:activator="{ on }">
+                            <span v-on="on" @click="on" class="text-truncate">
+                                <v-icon class="mx-2">mdi-check-outline</v-icon>
+                                Holy Innocents' High School
+                            </span>
+                        </template>
+                        <span>Holy Innocents' High School</span>
+                    </v-tooltip>
                   </v-card-title>
                   <v-container>
                     <v-row>
