@@ -8,7 +8,7 @@
 
                 <!-- Title -->
                 <h1 
-                    class="mb-10 mt-5 display-1" 
+                    :class="titleClass + ' mb-10 mt-5'" 
                     style="color: #a7ff83"
                 >
                     <span :class="titleClass">My Projects</span>
@@ -181,53 +181,52 @@
                         <!-- End of simple cards shown on smaller viewports -->
 
                         <!-- Timeline shown on medium and up viewports -->
-                        <v-container class="ma-0 pa-0" v-if="$vuetify.breakpoint.mdAndUp">
-                            <v-timeline 
-                                :dense="$vuetify.breakpoint.mdAndDown"
+                        <v-timeline 
+                            :dense="$vuetify.breakpoint.mdAndDown"
+                            v-if="$vuetify.breakpoint.mdAndUp" 
+                        >
+                            <v-timeline-item
+                                fill-dot
+                                color="#071a52"
+                                v-for="work in workExp"
+                                :key="work.title"
                             >
-                                <v-timeline-item
-                                    fill-dot
-                                    color="#071a52"
-                                    v-for="work in workExp"
-                                    :key="work.title"
+                                <v-card
+                                    dark
+                                    tile
+                                    elevation="5"
+                                    style="background:#071a52;color:white"
                                 >
-                                    <v-card
-                                        dark
-                                        tile
-                                        elevation="5"
+                                    <v-card-title 
                                         style="background:#071a52;color:white"
                                     >
-                                        <v-card-title 
-                                            style="background:#071a52;color:white"
-                                        >
-                                            <v-tooltip bottom>
-                                                <template v-slot:activator="{ on }">
-                                                    <span v-on="on" class="text-truncate">
-                                                        <v-icon class="mx-2">{{ work.icon }}</v-icon>
-                                                        {{ work.title }}
-                                                    </span>
-                                                </template>
-                                                <span>{{ work.title }}</span>
-                                            </v-tooltip>
-                                        </v-card-title>
-                                        <v-card-text>
-                                            <p class="ms-2 font-weight-bold subtitle-1" style="margin:0">
-                                                {{ work.dept }}
-                                            </p>
-                                            <p class="ms-2 font-weight-bold subtitle-1" style="margin:0">
-                                                {{ work.company }}
-                                            </p>
-                                            <p class="ms-2 font-weight-bold subtitle-1">
-                                                {{ work.duration }}
-                                            </p>
-                                            <ul>
-                                                <li v-for="resp in work.responsibilities" :key="resp">{{ resp }}</li>
-                                            </ul>
-                                        </v-card-text>
-                                    </v-card>
-                                </v-timeline-item>
-                            </v-timeline>
-                        </v-container>
+                                        <v-tooltip bottom>
+                                            <template v-slot:activator="{ on }">
+                                                <span v-on="on" class="text-truncate">
+                                                    <v-icon class="mx-2">{{ work.icon }}</v-icon>
+                                                    {{ work.title }}
+                                                </span>
+                                            </template>
+                                            <span>{{ work.title }}</span>
+                                        </v-tooltip>
+                                    </v-card-title>
+                                    <v-card-text>
+                                        <p class="ms-2 font-weight-bold subtitle-1" style="margin:0">
+                                            {{ work.dept }}
+                                        </p>
+                                        <p class="ms-2 font-weight-bold subtitle-1" style="margin:0">
+                                            {{ work.company }}
+                                        </p>
+                                        <p class="ms-2 font-weight-bold subtitle-1">
+                                            {{ work.duration }}
+                                        </p>
+                                        <ul>
+                                            <li v-for="resp in work.responsibilities" :key="resp">{{ resp }}</li>
+                                        </ul>
+                                    </v-card-text>
+                                </v-card>
+                            </v-timeline-item>
+                        </v-timeline>
                         <!-- End of timeline shown on medium and up viewports -->
 
                     </v-card-text>
@@ -369,7 +368,7 @@ export default {
           if (this.$vuetify.breakpoint.mdAndUp) {
             return 'display-3 text-truncate'
           } else {
-            return 'display-1 text-truncate'
+            return 'display-1 text-truncate text-center'
           }
         }
     }

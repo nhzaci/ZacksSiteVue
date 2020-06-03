@@ -205,7 +205,7 @@
 
             <!-- Timeline for larger viewports -->
             <v-timeline
-              class="hidden-md-and-down"
+              v-if="!$vuetify.breakpoint.mdAndDown"
             >
               <!-- Undergrad -->
               <v-timeline-item
@@ -290,6 +290,67 @@
     </v-row>
     <!-- End of Education -->
 
+    <!-- Accolades -->
+    <v-row justify="center" style="background:SteelBlue">
+      <v-col cols="12" md="10">
+        <v-card
+          class="pa-5 ma-5 white--text"
+          style="background:#17b978"
+          tile
+          elevation="10"
+        >
+          <v-card-title 
+            :class="titleClass"
+          >
+            My Accolades
+          </v-card-title>
+          <v-card-text>
+            <v-row v-if="!$vuetify.breakpoint.mdAndUp">
+              <v-card
+                color="#1f4287"
+                tile
+                elevation="5"
+                class="my-2"
+                v-for="award in awards"
+                :key="award.subtitle"
+              >
+                <v-card-title class="white--text">
+                  {{ award.title }}
+                </v-card-title>
+                <v-card-subtitle class="white--text text--darken-2">
+                  {{ award.subtitle }}
+                </v-card-subtitle>
+              </v-card>
+            </v-row>
+            <v-timeline
+              dense
+              v-if="$vuetify.breakpoint.mdAndUp"
+            >
+              <v-timeline-item
+                fill-dot
+                small
+                color="#1f4287"
+                v-for="award in awards"
+                :key="award.subtitle"
+              >
+                <v-card
+                  color="#1f4287"
+                  tile
+                  elevation="5"
+                >
+                  <v-card-title class="white--text">
+                    {{ award.title }}
+                  </v-card-title>
+                  <v-card-subtitle class="white--text text--darken-2">
+                    {{ award.subtitle }}
+                  </v-card-subtitle>
+                </v-card>
+              </v-timeline-item>
+            </v-timeline>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
 
   </v-container>
 </template>
@@ -315,6 +376,14 @@ export default {
       { name: 'PHP', icon: 'mdi-language-php' },
       { name: 'MySQL', icon: 'mdi-database-settings' },
       { name: 'MongoDB', icon: 'mdi-database' },
+    ],
+    awards: [
+      { title: 'Outstanding Contribution Award for CCA', subtitle: 'CJC, 2017' },
+      { title: 'Edusave Certificate of Academic Achievement', subtitle: 'CJC, 2016' },
+      { title: 'Edusave Good Progress Award', subtitle: 'CJC, 2016 ' }, //trailing space to avoid duplicate keys
+      { title: 'Edusave Scholarship', subtitle: 'HIHS, 2014' },
+      { title: 'Edusave Scholarship', subtitle: 'HIHS, 2013' },
+      { title: 'Edusave Certificate of Academic Achievement', subtitle: 'HIHS, 2012' }
     ]
   }),
   computed: {
