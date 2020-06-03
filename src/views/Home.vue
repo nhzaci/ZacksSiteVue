@@ -1,9 +1,9 @@
 <template>
   <v-container class="ma-0 pa-0" style="background:#071a52;" fluid>
-    <v-row align="center" no-gutters style="height:50%">
+    <v-row align="center" no-gutters>
       
       <!-- Left column -->
-      <v-col cols="12" md="6" :class="titleClass"> 
+      <v-col cols="12" md="6" :class="titleClass" class="py-10"> 
 
         <!-- Title Row -->
         <v-row justify="center" class="font-weight-bold white--text py-10">
@@ -33,7 +33,7 @@
 
       <!-- Right Column -->
       <v-col cols="12" md="6">
-        <v-parallax src="../assets/computers.jpg" height="600" style="background-size:cover"></v-parallax>
+        <v-parallax id="parallax-item" src="../assets/web.jpg" jumbotron></v-parallax>
       </v-col>
     </v-row>
 
@@ -310,6 +310,6 @@ export default {
         return 'display-1'
       }
     },
-  }
+  },
 }
 </script>

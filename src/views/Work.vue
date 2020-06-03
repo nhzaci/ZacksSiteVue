@@ -16,6 +16,7 @@
 
                 <!-- Card row -->
                 <v-row>
+                    <!-- Project cards -->
                     <v-col 
                         cols="6" 
                         md="3" 
@@ -29,9 +30,29 @@
                             tile
                             dark
                         >
-                            <v-img src="../assets/satellite.jpg"></v-img>
+                            <v-img 
+                                :src="require('../assets/' + project.imgUrl)"
+                                height="120"
+                            >
+                                <template v-slot:placeholder>
+                                    <v-row
+                                      class="fill-height ma-0"
+                                      align="center"
+                                      justify="center"
+                                    >
+                                      <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+                                    </v-row>
+                                </template>
+                            </v-img>
                             <v-card-title>
-                                {{ project.title }}
+                                <v-tooltip bottom>
+                                    <template v-slot:activator="{ on }">
+                                        <span v-on="on" class="text-truncate">
+                                            {{ project.title }}
+                                        </span>
+                                    </template>
+                                    <span>{{ project.title }}</span>
+                                </v-tooltip>
                             </v-card-title>
                             <v-card-subtitle>
                                 {{ project.subtitle }}
@@ -39,8 +60,9 @@
 
                             <v-card-actions>
                                 <v-btn 
-                                    text 
-                                    color="purple" 
+                                    tile
+                                    elevation="3"
+                                    color="#1f4287" 
                                     :href="project.link"
                                     target="_blank"
                                 >
@@ -81,10 +103,11 @@
                 <v-row justify="end" class="my-5">
                     <v-col cols="12">
                         <v-pagination
-                            color="orange darken-2"
+                            color="#1f4287" 
                             circle
                             v-model="page"
                             :length="Math.ceil(projects.length / 4)"
+                            @click="load"
                         >
                         </v-pagination>
 
@@ -218,98 +241,73 @@
 export default {
     data: () => ({
         page: 1, //counts starting from 1
+        loading: false,
         projects: [
             {
                 title: 'ClickClack',
-                subtitle: 'Typing Test Site',
+                subtitle: 'Minimalist Typing Test Site',
                 link: 'https://nhzaci.github.io/ClickClack/',
                 description: 'A minimalist typing speed test website made with Vue.js and Nuxt.js with styling of elements done in Tailwind CSS. Makes use of cookies to store a user\'s previous attempts and averages their speed and accuracy over time.',
-                show: false
+                show: false,
+                imgUrl: 'ClickClack.png'
             },
             {
-                title: 'ClickClack1',
-                subtitle: 'Typing Test Site',
-                link: 'https://nhzaci.github.io/ClickClack/',
-                description: 'A minimalist typing speed test website made with Vue.js and Nuxt.js with styling of elements done in Tailwind CSS. Makes use of cookies to store a user\'s previous attempts and averages their speed and accuract over time.',
-                show: false
+                title: 'ZacksSiteVue',
+                subtitle: 'Minimalist Personal Website',
+                link: 'https://github.com/nhzaci/ZacksSiteVue',
+                description: 'A beautiful personal website with material design styling, made with Vue CLI 3 with styling from the UI pack Vuetify.js.',
+                show: false,
+                imgUrl: 'ZacksSiteVue.png'
             },
             {
-                title: 'ClickClack2',
-                subtitle: 'Typing Test Site',
-                link: 'https://nhzaci.github.io/ClickClack/',
-                description: 'A minimalist typing speed test website made with Vue.js and Nuxt.js with styling of elements done in Tailwind CSS. Makes use of cookies to store a user\'s previous attempts and averages their speed and accuract over time.',
-                show: false
-            },
-            {
-                title: 'ClickClack3',
-                subtitle: 'Typing Test Site',
-                link: 'https://nhzaci.github.io/ClickClack/',
-                description: 'A minimalist typing speed test website made with Vue.js and Nuxt.js with styling of elements done in Tailwind CSS. Makes use of cookies to store a user\'s previous attempts and averages their speed and accuract over time.',
-                show: false
-            },
-            {
-                title: 'ClickClack4',
-                subtitle: 'Typing Test Site',
-                link: 'https://nhzaci.github.io/ClickClack/',
-                description: 'A minimalist typing speed test website made with Vue.js and Nuxt.js with styling of elements done in Tailwind CSS. Makes use of cookies to store a user\'s previous attempts and averages their speed and accuract over time.',
-                show: false
-            },
-            {
-                title: 'ClickClack5',
-                subtitle: 'Typing Test Site',
-                link: 'https://nhzaci.github.io/ClickClack/',
-                description: 'A minimalist typing speed test website made with Vue.js and Nuxt.js with styling of elements done in Tailwind CSS. Makes use of cookies to store a user\'s previous attempts and averages their speed and accuract over time.',
-                show: false
-            },
-            {
-                title: 'ClickClack6',
-                subtitle: 'Typing Test Site',
-                link: 'https://nhzaci.github.io/ClickClack/',
-                description: 'A minimalist typing speed test website made with Vue.js and Nuxt.js with styling of elements done in Tailwind CSS. Makes use of cookies to store a user\'s previous attempts and averages their speed and accuract over time.',
-                show: false
-            },
-            {
-                title: 'ClickClack7',
-                subtitle: 'Typing Test Site',
-                link: 'https://nhzaci.github.io/ClickClack/',
-                description: 'A minimalist typing speed test website made with Vue.js and Nuxt.js with styling of elements done in Tailwind CSS. Makes use of cookies to store a user\'s previous attempts and averages their speed and accuract over time.',
-                show: false
-            },
-            {
-                title: 'ClickClack8',
-                subtitle: 'Typing Test Site',
-                link: 'https://nhzaci.github.io/ClickClack/',
-                description: 'A minimalist typing speed test website made with Vue.js and Nuxt.js with styling of elements done in Tailwind CSS. Makes use of cookies to store a user\'s previous attempts and averages their speed and accuract over time.',
-                show: false
-            },
-            {
-                title: 'ClickClack9',
-                subtitle: 'Typing Test Site',
-                link: 'https://nhzaci.github.io/ClickClack/',
-                description: 'A minimalist typing speed test website made with Vue.js and Nuxt.js with styling of elements done in Tailwind CSS. Makes use of cookies to store a user\'s previous attempts and averages their speed and accuract over time.',
-                show: false
-            },
-            {
-                title: 'ClickClack10',
-                subtitle: 'Typing Test Site',
-                link: 'https://nhzaci.github.io/ClickClack/',
-                description: 'A minimalist typing speed test website made with Vue.js and Nuxt.js with styling of elements done in Tailwind CSS. Makes use of cookies to store a user\'s previous attempts and averages their speed and accuract over time.',
-                show: false
-            },
-            {
-                title: 'ClickClack11',
-                subtitle: 'Typing Test Site',
-                link: 'https://nhzaci.github.io/ClickClack/',
-                description: 'A minimalist typing speed test website made with Vue.js and Nuxt.js with styling of elements done in Tailwind CSS. Makes use of cookies to store a user\'s previous attempts and averages their speed and accuract over time.',
-                show: false
-            },
-            {
-                title: 'FinancialSense',
+                title: 'FinancialSense (FS)',
                 subtitle: 'Financial Tracking Site',
                 link: 'https://github.com/nhzaci/FinancialSense',
                 description: 'A beautiful financial tracker built with Nuxt.js and Vuetify.js for styling. The home dashboard provides quick data and summarised insights to users and there is a tracking page to see more data and connects to an Express.js back end to get data on each user\'s balance and transactional data.',
+                imgUrl: 'FinancialSense.png',
+                show: false
+            },
+            {
+                title: 'FSExpress',
+                subtitle: 'Back-end RESTful API for FS',
+                link: 'https://github.com/nhzaci/FinancialSenseExpress',
+                description: 'Back-end API with full documentation for FinancialSense front-end financial tracking site. Database used is MongoDB with the mongoose package for queries to the database, set up on MongoDB Atlas.',
+                imgUrl: 'express.png',
+                show: false
+            },
+            {
+                title: 'WhereCanEat',
+                subtitle: 'Food Platform for Hackathon',
+                link: 'https://github.com/nhzaci/WhereCanEat',
+                description: 'A standard food platform site created with Nuxt.js on the front end with styling done in Tailwind CSS for custom component styling. The website was created in slightly under a day with a back-end Express.js server that transmits data from front end and get real-time results for food delivery from FoodPanda.',
+                imgUrl: 'WhereCanEat.png',
+                show: false
+            },
+            {
+                title: 'ZacksBlog (ZB)',
+                subtitle: 'Personal Blog Template',
+                link: 'https://github.com/nhzaci/ZacksBlogTemplate',
+                description: 'A beautiful blog template made in Nuxt.js for SEO options and TailwindCSS for styling. A clean material design is used with custom built components with Tailwind CSS, allowing for a very clean user interface.',
+                imgUrl: 'ZacksBlogTemplate.png',
+                show: false
+            },
+            {
+                title: 'ZBDjango',
+                subtitle: 'Back-end API for ZB',
+                link: 'https://github.com/nhzaci/DjangoFrameworkForBlog',
+                description: 'Back-end RESTful API for ZacksBlog, created with SQLite as the database on the back end.',
+                imgUrl: 'django.png',
+                show: false
+            },
+            {
+                title: 'ExpressAuthentication',
+                subtitle: 'Back-end Authentication API',
+                link: 'https://github.com/nhzaci/ExpressAuthentication',
+                description: 'Back-end RESTful API created to learn the ropes regarding authentication APIs, database used is a local MongoDB server.',
+                imgUrl: 'passport.png',
                 show: false
             }
+
         ],
         workExp: [
             {
@@ -351,8 +349,18 @@ export default {
             }
         ]
     }),
+    methods: {
+        load () {
+            this.loading = true;
+            setTimeout(this.loadingFalse(), 2000);
+        },
+        loadingFalse () {
+            this.loading = false;
+        }
+    },
     computed: {
         slicedArray () {
+            this.load();
             let start = (this.page - 1) * 4;
             let end = start + 4
             return this.projects.slice(start, end);
