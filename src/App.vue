@@ -7,8 +7,10 @@
 
     <NavDrawer />
 
-    <v-content>
-      <router-view></router-view>
+    <v-content height="100%" style="background:#071a52;">
+      <transition name="fade" mode="out-in">
+        <router-view></router-view>
+      </transition>
       <v-btn
         fixed
         fab

@@ -61,12 +61,12 @@
               </v-card-title>
 
               <!-- Skills card text -->
-              <v-card-text>
+              <v-card-text class="ma-0 pa-0">
                 <v-container class="ma-0 pa-0">
                   <v-row class="ma-0 pa-0">
 
                     <!-- Left list -->
-                    <v-col cols="6">
+                    <v-col cols="12" md="6">
                       <v-list elevation="5">
                         <v-list-item v-for="lang in languages" :key="lang.icon">
                           <v-list-item-icon>
@@ -82,7 +82,7 @@
                     </v-col>
 
                     <!-- Right List --> 
-                    <v-col cols="6">
+                    <v-col cols="12" md="6">
                       <v-list elevation="5">
                         <v-list-item v-for="lang in languages2" :key="lang.icon">
                           <v-list-item-icon>
@@ -120,19 +120,88 @@
           <v-card-title :class="titleClass">
             My Education
           </v-card-title>
-          <v-card-text>
+          <v-card-text class="ma-0 pa-0">
+
+            <!-- Container with cards for small viewports -->
+            <v-container class="ma-0 pa-0" v-if="$vuetify.breakpoint.mdAndDown">
+              
+                <v-card class="my-3" tile>
+                  <v-card-title class="orange darken-2">
+                    <span class="text-truncate">
+                      <v-icon class="mx-2">mdi-library</v-icon>
+                      National University of Singapore
+                    </span>
+                  </v-card-title>
+                  <v-container>
+                    <v-row>
+                      <v-col cols="12" md="10">
+                        <span class="font-weight-bold subtitle-1">
+                          Bachelor of Science (Business Analytics) 
+                          School of Computing
+                        </span>
+                        <p>
+                          Graduating 2023
+                        </p>
+                      </v-col>
+                    </v-row>
+                  </v-container>
+                </v-card>
+
+                <v-card class="my-3" tile>
+                  <v-card-title class="green">
+                    <span class="text-truncate">
+                      <v-icon class="mx-2">mdi-check-outline</v-icon>
+                      Catholic Junior College
+                    </span>
+                  </v-card-title>
+                  <v-container>
+                    <v-row>
+                      <v-col cols="12" md="10">
+                        <span class="font-weight-bold subtitle-1">
+                          GCE 'A' Levels
+                        </span>
+                        <p>Graduated 2016</p>
+                      </v-col>
+                    </v-row>
+                  </v-container>
+                </v-card>
+
+                <v-card class="my-3" tile>
+                  <v-card-title class="green">
+                    <span class="text-truncate">
+                      <v-icon class="mx-2">mdi-check-outline</v-icon>
+                      Holy Innocents' High School
+                    </span>
+                  </v-card-title>
+                  <v-container>
+                    <v-row>
+                      <v-col cols="12" md="10">
+                        <span class="font-weight-bold subtitle-1">
+                          GCE 'O' Levels
+                        </span>
+                        <p>Graduated 2014</p>
+                      </v-col>
+                    </v-row>
+                  </v-container>
+                </v-card>
+
+            </v-container>
+            <!-- End of Container with cards for small viewports -->
+
+            <!-- Timeline for larger viewports -->
             <v-timeline
-              :dense="$vuetify.breakpoint.mdAndDown"
+              class="hidden-md-and-down"
             >
               <!-- Undergrad -->
               <v-timeline-item
                 color="orange darken-2"
                 fill-dot
+                small
               >
                 <v-card>
                   <v-card-title class="orange darken-2">
                     <v-icon class="mx-2">mdi-library</v-icon>
-                    National University of Singapore
+                      National University of Singapore
                   </v-card-title>
                   <v-container>
                     <v-row>
@@ -154,6 +223,7 @@
               <v-timeline-item
                 color="green"
                 fill-dot
+                small
               >
                 <v-card>
                   <v-card-title :class="$vuetify.breakpoint.mdAndDown ? 'green justify-start' : 'green justify-end'">
@@ -177,6 +247,7 @@
               <v-timeline-item
                 color="green"
                 fill-dot
+                small
               >
                 <v-card>
                   <v-card-title class="green">
@@ -196,11 +267,15 @@
                 </v-card>
               </v-timeline-item>
             </v-timeline>
+            <!-- End of timeline for larger viewports -->
+
           </v-card-text>
         </v-card>
       </v-col>
-
     </v-row>
+    <!-- End of Education -->
+
+
   </v-container>
 </template>
 
@@ -234,7 +309,7 @@ export default {
       } else {
         return 'display-1'
       }
-    }
+    },
   }
 }
 </script>
