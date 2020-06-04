@@ -1,24 +1,5 @@
-# zacks-site
+# Zack's Site
 
-## Project setup
-```
-npm install
-```
+### About
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+A simple static webpage about my background built on Vue CLI 3 with Vuetify.js as the UI pack used in the webpage.
