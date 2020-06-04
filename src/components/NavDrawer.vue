@@ -1,7 +1,7 @@
 <template>
     <v-overlay
         :value="navDrawerOpen"
-        opacity=".6"
+        opacity=".8"
     >
         <v-row class="justify-center py-2">
             <v-btn
