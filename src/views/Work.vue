@@ -10,6 +10,7 @@
                 <h1 
                     :class="titleClass + ' mb-10 mt-5'" 
                     style="color: #a7ff83"
+                    id="projects"
                 >
                     <span :class="titleClass">My Projects</span>
                 </h1>
@@ -131,7 +132,7 @@
                     tile
                     elevation="10"
                 >
-                    <v-card-title :class="titleClass">
+                    <v-card-title :class="titleClass" id="experience">
                         Work Experience
                     </v-card-title>
                     <v-card-text class="ma-0 pa-0">
@@ -238,6 +239,12 @@
 
 <script>
 export default {
+    metaInfo: {
+        title: 'My Works',
+        meta: [
+        { vmid: 'description', name: 'description', content: 'My Projects and past work experience' }
+        ]
+    },
     data: () => ({
         page: 1, //counts starting from 1
         loading: false,

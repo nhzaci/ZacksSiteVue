@@ -33,7 +33,7 @@
 
       <!-- Right Column -->
       <v-col cols="12" md="6">
-        <v-parallax id="parallax-item" src="../assets/web.jpg" jumbotron></v-parallax>
+        <v-parallax id="parallax-item" src="../assets/web.jpg"></v-parallax>
       </v-col>
     </v-row>
 
@@ -53,6 +53,7 @@
               style="background:#17b978"
               tile
               elevation="10"
+              id="skills"
             >
               <v-card-title 
                 :class="titleClass"
@@ -106,6 +107,7 @@
       </v-col>
     </v-row>
 
+
     <!-- Education -->
     <v-row justify="center">
       <!-- Right Column -->
@@ -116,8 +118,11 @@
           tile
           dark
           elevation="10"
+          id="education"
         >
-          <v-card-title :class="titleClass">
+          <v-card-title 
+            :class="titleClass" 
+          >
             My Education
           </v-card-title>
           <v-card-text class="ma-0 pa-0">
@@ -142,6 +147,9 @@
                       <v-col cols="12" md="10">
                         <span class="font-weight-bold subtitle-1">
                           Bachelor of Science (Business Analytics) 
+                        </span>
+                        <br>
+                        <span class="font-weight-bold subtitle-1">
                           School of Computing
                         </span>
                         <p>
@@ -222,7 +230,10 @@
                     <v-row>
                       <v-col cols="12" md="10">
                         <span class="font-weight-bold subtitle-1">
-                          Bachelor of Science (Business Analytics) 
+                          Bachelor of Science (Business Analytics)
+                        </span>
+                        <br>
+                        <span class="font-weight-bold subtitle-1">
                           School of Computing
                         </span>
                         <p>
@@ -298,6 +309,7 @@
           style="background:#17b978"
           tile
           elevation="10"
+          id="accolades"
         >
           <v-card-title 
             :class="titleClass"
@@ -359,6 +371,12 @@
 
 export default {
   name: 'Home',
+  metaInfo: {
+    title: 'Home',
+    meta: [
+      { vmid: 'description', name: 'description', content: 'My Skills, Education and Accolades over the years' }
+    ]
+  },
   data: () => ({
     languages: [
       { name: 'Vue.js', icon: 'mdi-vuejs' },

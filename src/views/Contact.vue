@@ -86,6 +86,12 @@
 
 <script>
 export default {
+    metaInfo: {
+        title: 'Contact Me',
+        meta: [
+        { vmid: 'description', name: 'description', content: 'My Contact Info and Social Media Outlets' }
+        ]
+    },
     data: () => ({
         platforms: [
             {

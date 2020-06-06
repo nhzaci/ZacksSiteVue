@@ -19,7 +19,7 @@
         large
         @click="navDrawerOpen=!navDrawerOpen"
         color="orange darken-2"
-        class="hidden-md-and-up mb-7 me-5"
+        v-if="$vuetify.breakpoint.mdAndDown"
       >
         <v-icon color="white">mdi-menu</v-icon>
       </v-btn>
@@ -34,6 +34,12 @@ import NavDrawer from './components/NavDrawer';
 
 export default {
   name: 'App',
+  metaInfo: {
+    titleTemplate: '%s | Zack\'s Site',
+    link: [
+      { rel: 'favicon', href: 'favicon.ico' }
+    ]
+  },
   components: {
     NavBar,
     NavDrawer
@@ -50,3 +56,12 @@ export default {
   }
 };
 </script>
+
+<style>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .3s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+</style>
