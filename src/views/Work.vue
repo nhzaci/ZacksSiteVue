@@ -32,7 +32,7 @@
                         >
                             <v-img 
                                 :src="require('../assets/' + project.imgUrl)"
-                                height="120"
+                                height="240"
                                 @click="$router.push(`/work/${project.id}`)"
                                 style="cursor:pointer"
                             >

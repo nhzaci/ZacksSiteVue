@@ -9,6 +9,7 @@
           color="#1f4287"
           x-large
           dark
+          tile
           to="/work"
           v-if="$vuetify.breakpoint.mdAndUp"
         > 
@@ -90,11 +91,14 @@
             {{ project.description }}
           </v-row>
           <v-row class="px-lg-7">
-            <v-col>
-              <span :class="subtitleClass" class="font-weight-light font-italic">Skills:</span>
+            <v-col
+              :class="subtitleClass"
+              class="font-weight-light font-italic"
+            >
+              Skills:
             </v-col>
           </v-row>
-          <v-row class="px-lg-8">
+          <v-row class="px-lg-8" justify="center">
             <v-chip 
               v-for="tag in project.tags"
               :key="tag"
@@ -166,14 +170,14 @@
         if (this.$vuetify.breakpoint.mdAndUp) {
           return 'subtitle-1'
         } else {
-          return 'subtitle-2'
+          return 'subtitle-2 text-center'
         }
       },
       carouselHeight() {
         if (this.$vuetify.breakpoint.smAndDown) {
           return "200"
         }
-        return ""
+        return "800"
       },
       title() {
         if (this.project.fullTitle) {

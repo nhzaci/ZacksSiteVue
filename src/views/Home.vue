@@ -46,7 +46,7 @@
       style="background:SteelBlue;"
     >
 
-      <v-col cols="12" md="6">
+      <v-col cols="12" md="10">
           <v-col>
             <v-card
               class="pa-5 ma-5 white--text"
