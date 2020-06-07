@@ -93,9 +93,9 @@
           <v-row class="px-lg-7">
             <v-col
               :class="subtitleClass"
-              class="font-weight-light font-italic"
+              class="font-weight-light font-italic text-center"
             >
-              Skills:
+              Skills
             </v-col>
           </v-row>
           <v-row class="px-lg-8" justify="center">
