@@ -20,7 +20,6 @@
                     <!-- Project cards -->
                     <v-col 
                         cols="6" 
-                        md="3" 
                         v-for="project in slicedArray" 
                         :key="project.title"
                     >
@@ -34,6 +33,8 @@
                             <v-img 
                                 :src="require('../assets/' + project.imgUrl)"
                                 height="120"
+                                @click="$router.push(`/work/${project.id}`)"
+                                style="cursor:pointer"
                             >
                                 <template v-slot:placeholder>
                                     <v-row
@@ -45,17 +46,23 @@
                                     </v-row>
                                 </template>
                             </v-img>
-                            <v-card-title>
+                            <v-card-title
+                                @click="$router.push(`/work/${project.id}`)"
+                                style="cursor:pointer"
+                            >
                                 <v-tooltip bottom>
                                     <template v-slot:activator="{ on }">
                                         <span v-on="on" class="text-truncate">
                                             {{ project.title }}
                                         </span>
                                     </template>
-                                    <span>{{ project.title }}</span>
+                                    <span>{{ projectTitle(project) }}</span>
                                 </v-tooltip>
                             </v-card-title>
-                            <v-card-subtitle>
+                            <v-card-subtitle
+                                @click="$router.push(`/work/${project.id}`)"
+                                style="cursor:pointer"
+                            >
                                 {{ project.subtitle }}
                             </v-card-subtitle>
 
@@ -238,6 +245,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
     metaInfo: {
         title: 'My Works',
@@ -248,73 +257,6 @@ export default {
     data: () => ({
         page: 1, //counts starting from 1
         loading: false,
-        projects: [
-            {
-                title: 'ClickClack',
-                subtitle: 'Minimalist Typing Test Site',
-                link: 'https://nhzaci.github.io/ClickClack/',
-                description: 'A minimalist typing speed test website made with Vue.js and Nuxt.js with styling of elements done in Tailwind CSS. Makes use of cookies to store a user\'s previous attempts and averages their speed and accuracy over time.',
-                show: false,
-                imgUrl: 'ClickClack.png'
-            },
-            {
-                title: 'ZacksSiteVue',
-                subtitle: 'Minimalist Personal Website',
-                link: 'https://github.com/nhzaci/ZacksSiteVue',
-                description: 'A beautiful personal website with material design styling, made with Vue CLI 3 with styling from the UI pack Vuetify.js.',
-                show: false,
-                imgUrl: 'ZacksSiteVue.png'
-            },
-            {
-                title: 'FinancialSense (FS)',
-                subtitle: 'Financial Tracking Site',
-                link: 'https://github.com/nhzaci/FinancialSense',
-                description: 'A beautiful financial tracker built with Nuxt.js and Vuetify.js for styling. The home dashboard provides quick data and summarised insights to users and there is a tracking page to see more data and connects to an Express.js back end to get data on each user\'s balance and transactional data.',
-                imgUrl: 'FinancialSense.png',
-                show: false
-            },
-            {
-                title: 'FSExpress',
-                subtitle: 'Back-end RESTful API for FS',
-                link: 'https://github.com/nhzaci/FinancialSenseExpress',
-                description: 'Back-end API with full documentation for FinancialSense front-end financial tracking site. Database used is MongoDB with the mongoose package for queries to the database, set up on MongoDB Atlas.',
-                imgUrl: 'express.png',
-                show: false
-            },
-            {
-                title: 'WhereCanEat',
-                subtitle: 'Food Platform for Hackathon',
-                link: 'https://github.com/nhzaci/WhereCanEat',
-                description: 'A standard food platform site created with Nuxt.js on the front end with styling done in Tailwind CSS for custom component styling. The website was created in slightly under a day with a back-end Express.js server that transmits data from front end and get real-time results for food delivery from FoodPanda.',
-                imgUrl: 'WhereCanEat.png',
-                show: false
-            },
-            {
-                title: 'ZacksBlog (ZB)',
-                subtitle: 'Personal Blog Template',
-                link: 'https://github.com/nhzaci/ZacksBlogTemplate',
-                description: 'A beautiful blog template made in Nuxt.js for SEO options and TailwindCSS for styling. A clean material design is used with custom built components with Tailwind CSS, allowing for a very clean user interface.',
-                imgUrl: 'ZacksBlogTemplate.png',
-                show: false
-            },
-            {
-                title: 'ZBDjango',
-                subtitle: 'Back-end API for ZB',
-                link: 'https://github.com/nhzaci/DjangoFrameworkForBlog',
-                description: 'Back-end RESTful API for ZacksBlog, created with SQLite as the database on the back end.',
-                imgUrl: 'django.png',
-                show: false
-            },
-            {
-                title: 'ExpressAuthentication',
-                subtitle: 'Back-end Authentication API',
-                link: 'https://github.com/nhzaci/ExpressAuthentication',
-                description: 'Back-end RESTful API created to learn the ropes regarding authentication APIs, database used is a local MongoDB server.',
-                imgUrl: 'passport.png',
-                show: false
-            }
-
-        ],
         workExp: [
             {
                 title: 'Strategy and Planning Admin Asst',
@@ -362,9 +304,18 @@ export default {
         },
         loadingFalse () {
             this.loading = false;
+        },
+        projectTitle(project) {
+            if (project.fullTitle) {
+                return project.fullTitle
+            }
+            return project.title
         }
     },
     computed: {
+        ...mapState({
+            projects: state => state.projects.data
+        }),
         slicedArray () {
             this.load();
             let start = (this.page - 1) * 4;

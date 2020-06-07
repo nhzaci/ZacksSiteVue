@@ -21,6 +21,7 @@
             transition="scale-transition"
             bottom
             offset-y
+            :open-on-hover="onPage('/')"
         >
             <template v-slot:activator="{ on }">
                 <v-btn
@@ -31,7 +32,7 @@
                     class="headline font-weight-light hidden-md-and-down white--text"
                 >
                     Home
-                    <v-icon class="ms-2">mdi-chevron-down</v-icon>
+                    <v-icon class="ms-2" v-show="onPage('/')">mdi-chevron-down</v-icon>
                 </v-btn>
             </template>
 
@@ -57,6 +58,7 @@
             transition="scale-transition"
             bottom
             offset-y
+            :open-on-hover="onPage('/work')"
         >
             <template v-slot:activator="{ on }">
                 <v-btn
@@ -67,7 +69,7 @@
                     class="headline font-weight-light hidden-md-and-down white--text"
                 >
                     My Works
-                    <v-icon class="ms-2">mdi-chevron-down</v-icon>
+                    <v-icon class="ms-2" v-show="onPage('/work')">mdi-chevron-down</v-icon>
                 </v-btn>
             </template>
 
@@ -112,20 +114,19 @@ export default {
         workLinks: [
             { title: 'My Projects', id: '#projects' },
             { title: 'Work Experience', id: '#experience'}
-        ],
-        number: 999
+        ]
     }),
+    methods: {
+        onPage(url) {
+            return this.$route.path === url;
+        }
+    },
     computed: {
         options() {
             return {
                 duration: 300,
                 easing: 'easeInOutCubic'
             }
-        },
-        target() {
-            const value = this['number']
-            if (!isNaN(value)) return Number(value)
-            else return 0
         },
         navDrawerOpen: {
             get () {
