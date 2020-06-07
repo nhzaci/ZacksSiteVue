@@ -63,7 +63,7 @@
 
               <!-- Skills card text -->
               <v-card-text class="ma-0 pa-0">
-                <v-container class="ma-0 pa-0">
+                <v-container class="ma-0 pa-0" fluid>
                   <v-row class="ma-0 pa-0">
 
                     <!-- Left list -->
@@ -71,11 +71,11 @@
                       <v-list elevation="5">
                         <v-list-item v-for="lang in languages" :key="lang.icon">
                           <v-list-item-icon>
-                            <v-icon>
+                            <v-icon large>
                               {{ lang.icon }} 
                             </v-icon>
                           </v-list-item-icon>
-                          <v-list-item-content>
+                          <v-list-item-content class="subtitle-1">
                             {{ lang.name }}
                           </v-list-item-content>
                         </v-list-item>
@@ -87,11 +87,11 @@
                       <v-list elevation="5">
                         <v-list-item v-for="lang in languages2" :key="lang.icon">
                           <v-list-item-icon>
-                            <v-icon>
+                            <v-icon large>
                               {{ lang.icon }} 
                             </v-icon>
                           </v-list-item-icon>
-                          <v-list-item-content>
+                          <v-list-item-content class="subtitle-1">
                             {{ lang.name }}
                           </v-list-item-content>
                         </v-list-item>
@@ -378,6 +378,7 @@ export default {
     ]
   },
   data: () => ({
+    rating: 4,
     languages: [
       { name: 'Vue.js', icon: 'mdi-vuejs' },
       { name: 'Nuxt.js', icon: 'mdi-nuxt' },
