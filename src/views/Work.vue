@@ -32,7 +32,7 @@
                         >
                             <v-img 
                                 :src="require('../assets/' + project.imgUrl)"
-                                height="240"
+                                :height="imgHeight"
                                 @click="$router.push(`/work/${project.id}`)"
                                 style="cursor:pointer"
                             >
@@ -62,6 +62,7 @@
                             <v-card-subtitle
                                 @click="$router.push(`/work/${project.id}`)"
                                 style="cursor:pointer"
+                                class="text-truncate"
                             >
                                 {{ project.subtitle }}
                             </v-card-subtitle>
@@ -327,6 +328,13 @@ export default {
             return 'display-3 text-truncate'
           } else {
             return 'display-1 text-truncate text-center'
+          }
+        },
+        imgHeight() {
+          if (this.$vuetify.breakpoint.mdAndUp) {
+            return '240'
+          } else {
+            return '120'
           }
         }
     }
