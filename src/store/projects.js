@@ -8,8 +8,8 @@ export default {
         link: 'https://nhzaci.github.io/ClickClack/',
         description: 'A minimalist typing speed test website made with Vue.js and Nuxt.js with styling of elements done in Tailwind CSS. Makes use of cookies to store a user\'s previous attempts and averages their speed and accuracy over time.',
         show: false,
-        allImg: ['ClickClack.png', 'ClickClack/completed.png', 'ClickClack/help.png'],
-        imgUrl: 'ClickClack.png',
+        allImg: ['ClickClack/ClickClack.png', 'ClickClack/completed.png', 'ClickClack/help.png'],
+        imgUrl: 'ClickClack/ClickClack.png',
         tags: ['Nuxt.js', 'Vue.js', 'Tailwind CSS', 'HTML5', 'CSS', 'JavaScript', 'Cookies']
       },
       {
@@ -30,8 +30,8 @@ export default {
         subtitle: 'Financial Tracking Site',
         link: 'https://github.com/nhzaci/FinancialSense',
         description: 'A beautiful financial tracker built with Nuxt.js and Vuetify.js for styling. The home dashboard provides quick data and summarised insights to users and there is a tracking page to see more data and connects to an Express.js back end to get data on each user\'s balance and transactional data.',
-        imgUrl: 'FinancialSense.png',
-        allImg: ['FinancialSense.png'],
+        imgUrl: 'FinancialSense/HomePage.png',
+        allImg: ['FinancialSense/HomePage.png', 'FinancialSense/TrackPage.png', 'FinancialSense/AddTransaction.png', 'FinancialSense/EditTransaction.png', 'FinancialSense/NavDrawer.png', 'FinancialSense/AppBarIcons.png'],
         show: false,
         tags: ['Nuxt.js', 'Vue.js', 'Vuetify.js', 'Vuex', 'HTML5', 'CSS', 'JavaScript', 'Cookies']
       },

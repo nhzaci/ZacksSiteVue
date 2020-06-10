@@ -99,15 +99,17 @@
             </v-col>
           </v-row>
           <v-row class="px-lg-8" justify="center">
-            <v-chip 
-              v-for="tag in project.tags"
-              :key="tag"
-              class="ma-1 mx-lg-2"
-              color="#071a52"
-              :class="accentClass"
-            >
-              {{ tag }}
-            </v-chip>
+            <v-chip-group>
+              <v-chip 
+                v-for="tag in project.tags"
+                :key="tag"
+                class="ma-1 mx-lg-2"
+                color="#071a52"
+                :class="accentClass"
+              >
+                {{ tag }}
+              </v-chip>
+            </v-chip-group>
           </v-row>
           <v-spacer></v-spacer>
           <v-card-actions class="px-lg-8">
