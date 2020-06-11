@@ -80,7 +80,7 @@
               elevation="5"
             >
               <v-list-item-content :class="accentClass">
-                {{ proj.title }}
+                {{ proj.title }} <span class="font-italic">{{ proj.subtitle }}</span>
               </v-list-item-content>
             </v-list-item>
           </v-list>
