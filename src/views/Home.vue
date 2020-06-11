@@ -4,7 +4,7 @@
       
       <!-- Left column -->
       <v-col cols="12" class=""> 
-        <v-parallax src="../assets/web.jpg" :height="parallaxHeight">
+        <v-parallax src="../assets/computersOverlayed.jpg" :height="parallaxHeight">
           <v-row class="fill-height" align="center" justify="center">
             <v-col cols="12" md="8">
               <v-card class="pa-10 primary">
@@ -323,8 +323,8 @@
                 tile
                 elevation="5"
                 class="my-2"
-                v-for="award in awards"
-                :key="award.subtitle"
+                v-for="(award,i) in awards"
+                :key="award.title+i"
               >
                 <v-card-title class="white--text">
                   {{ award.title }}
@@ -399,7 +399,7 @@ export default {
     awards: [
       { title: 'Outstanding Contribution Award for CCA', subtitle: 'CJC, 2017' },
       { title: 'Edusave Certificate of Academic Achievement', subtitle: 'CJC, 2016' },
-      { title: 'Edusave Good Progress Award', subtitle: 'CJC, 2016 ' }, //trailing space to avoid duplicate keys
+      { title: 'Edusave Good Progress Award', subtitle: 'CJC, 2016' }, 
       { title: 'Edusave Scholarship', subtitle: 'HIHS, 2014' },
       { title: 'Edusave Scholarship', subtitle: 'HIHS, 2013' },
       { title: 'Edusave Certificate of Academic Achievement', subtitle: 'HIHS, 2012' }
