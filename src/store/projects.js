@@ -1,4 +1,5 @@
 export default {
+  namespaced: true,
   state: {
     data: [
       {
@@ -92,5 +93,11 @@ export default {
         show: false
       }
     ]
+  },
+  getters: {
+    getMoreProjects: (state) => (id) => {
+      console.log(state.data.filter(proj => proj.id != id))
+      return state.data.filter(proj => proj.id != Number(id)).slice(0,4)
+    }
   }
 };

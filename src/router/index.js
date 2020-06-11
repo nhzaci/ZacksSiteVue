@@ -5,6 +5,7 @@ import Home from '../views/Home.vue'
 import Work from '../views/Work.vue'
 import Contact from '../views/Contact.vue'
 import Project from '../views/Project.vue'
+import Proj from '../views/Proj.vue'
 
 Vue.use(VueRouter)
 Vue.use(Meta)
@@ -24,6 +25,11 @@ Vue.use(Meta)
     path: '/work/:id',
     name: 'Project',
     component: Project
+  },
+  {
+    path: '/proj/:id',
+    name: 'Project Details',
+    component: Proj
   },
   {
     path: '/contact',
