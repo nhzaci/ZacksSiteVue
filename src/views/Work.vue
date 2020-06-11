@@ -52,7 +52,7 @@
                             >
                                 <v-tooltip bottom>
                                     <template v-slot:activator="{ on }">
-                                        <span v-on="on" class="text-truncate">
+                                        <span v-on="on" :class="subtitleClass" class="font-weight-bold">
                                             {{ project.title }}
                                         </span>
                                     </template>
@@ -62,7 +62,7 @@
                             <v-card-subtitle
                                 @click="$router.push(`/work/${project.id}`)"
                                 style="cursor:pointer"
-                                class="text-truncate"
+                                :class="descriptionClass"
                             >
                                 {{ project.subtitle }}
                             </v-card-subtitle>
@@ -328,6 +328,20 @@ export default {
             return 'display-3 text-truncate'
           } else {
             return 'display-1 text-truncate text-center'
+          }
+        },
+        subtitleClass () {
+          if (this.$vuetify.breakpoint.mdAndUp) {
+            return 'headline text-truncate'
+          } else {
+            return 'subtitle-1 text-truncate text-center'
+          }
+        },
+        descriptionClass() {
+          if (this.$vuetify.breakpoint.mdAndUp) {
+            return 'subtitle-1 text-truncate'
+          } else {
+            return 'subtitle-2 text-truncate text-center'
           }
         },
         imgHeight() {

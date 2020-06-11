@@ -1,39 +1,40 @@
 <template>
-  <v-container class="ma-0 pa-0" style="background:#071a52;" fluid>
+  <v-container class="ma-0 pa-0" fluid>
     <v-row align="center" no-gutters>
       
       <!-- Left column -->
-      <v-col cols="12" md="6" :class="titleClass" class="py-10"> 
-
-        <!-- Title Row -->
-        <v-row justify="center" class="font-weight-bold white--text py-10">
-          Creating Experiences
-        </v-row>
-
-        <!-- Button Row -->
-        <v-row justify="center" class="py-10">
-          <v-btn 
-            class="mx-2 white--text" 
-            x-large
-            to="/work"
-            style="background:#17b978"
-            tile
-            elevation="10"
-          >My works</v-btn>
-          <v-btn 
-            class="mx-2 white--text" 
-            x-large
-            outlined
-            to="/contact"
-            tile
-            elevation="5"
-          >Contact Me</v-btn>
-        </v-row>
-      </v-col>
-
-      <!-- Right Column -->
-      <v-col cols="12" md="6">
-        <v-parallax id="parallax-item" src="../assets/web.jpg"></v-parallax>
+      <v-col cols="12" class=""> 
+        <v-parallax src="../assets/web.jpg" :height="parallaxHeight">
+          <v-row class="fill-height" align="center" justify="center">
+            <v-col cols="12" md="8">
+              <v-card class="pa-10 primary">
+                <v-card-title 
+                  class="white--text justify-center font-weight-bold" 
+                  :class="titleClass"
+                >
+                  <span class="text-center text-break">Creating Experiences</span>
+                </v-card-title>
+                <v-card-actions class="justify-center">
+                  <v-btn 
+                    class="contrast mx-2 white--text" 
+                    x-large
+                    to="/work"
+                    tile
+                    elevation="10"
+                  >My works</v-btn>
+                  <v-btn 
+                    class="mx-2 white--text" 
+                    x-large
+                    outlined
+                    to="/contact"
+                    tile
+                    elevation="5"
+                  >Contact Me</v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-parallax>
       </v-col>
     </v-row>
 
@@ -43,14 +44,13 @@
       align="center" 
       justify="center" 
       no-gutters 
-      style="background:SteelBlue;"
     >
 
       <v-col cols="12" md="10">
           <v-col>
             <v-card
               class="pa-5 ma-5 white--text"
-              style="background:#17b978"
+              color="contrast"
               tile
               elevation="10"
               id="skills"
@@ -302,7 +302,7 @@
     <!-- End of Education -->
 
     <!-- Accolades -->
-    <v-row justify="center" style="background:SteelBlue">
+    <v-row justify="center">
       <v-col cols="12" md="10">
         <v-card
           class="pa-5 ma-5 white--text"
@@ -413,6 +413,13 @@ export default {
         return 'display-1'
       }
     },
+    parallaxHeight() {
+      if (this.$vuetify.breakpoint.mdAndUp) {
+        return '800'
+      } else {
+        return '400'
+      }
+    }
   },
 }
 </script>
