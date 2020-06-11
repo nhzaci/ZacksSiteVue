@@ -47,7 +47,7 @@
                                 </template>
                             </v-img>
                             <v-card-title
-                                @click="$router.push(`/work/${project.id}`)"
+                                @click="$router.push(`/proj/${project.id}`)"
                                 style="cursor:pointer"
                             >
                                 <v-tooltip bottom>
@@ -60,7 +60,7 @@
                                 </v-tooltip>
                             </v-card-title>
                             <v-card-subtitle
-                                @click="$router.push(`/work/${project.id}`)"
+                                @click="$router.push(`/proj/${project.id}`)"
                                 style="cursor:pointer"
                                 :class="descriptionClass"
                             >
