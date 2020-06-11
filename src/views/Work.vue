@@ -33,7 +33,7 @@
                             <v-img 
                                 :src="require('../assets/' + project.imgUrl)"
                                 :height="imgHeight"
-                                @click="$router.push(`/work/${project.id}`)"
+                                @click="$router.push(`/proj/${project.id}`)"
                                 style="cursor:pointer"
                             >
                                 <template v-slot:placeholder>
