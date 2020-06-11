@@ -75,7 +75,7 @@
             <v-list-item
               v-for="proj in getList"
               :key="proj.id"
-              :to="`/work/${proj.id}`" 
+              :to="`/proj/${proj.id}`" 
               class="secondary my-2"
               elevation="5"
             >
