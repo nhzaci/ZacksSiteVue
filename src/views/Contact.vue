@@ -1,5 +1,5 @@
 <template>
-    <v-container class="ma-0" style="background:#071a52; height:100%;" fluid>
+    <v-container class="ma-0 primary" style="height:100%;" fluid>
 
         <v-row justify="center" class="py-5">
             <v-col cols="12" md="10">
@@ -11,16 +11,22 @@
 
             <v-col cols="12" md="10">
                 <v-card 
-                    class="pa-5" 
-                    style="height:100%; background: #17b978;" 
+                    class="contrast pa-5" 
+                    style="height:100%"
                     tile
                     elevation="10"
                 >
-                    <v-card-title :class="titleClass + ' justify-center'" style="color:#071a52">
-                        <v-icon x-large class="mx-2" color="#071a52">mdi-email</v-icon>
+                    <v-card-title 
+                        :class="titleClass" 
+                        class="justify-center primary--text"
+                    >
+                        <v-icon x-large class="mx-2" color="primary">mdi-email</v-icon>
                         Email
                     </v-card-title>
-                    <v-card-text :class="subtitleClass + ' text-center'" style="color:#071a52">
+                    <v-card-text 
+                        :class="subtitleClass" 
+                        class="primary--text text-center"
+                    >
                         ngzhicai98@gmail.com
                     </v-card-text>
                     <v-card-actions>
@@ -28,8 +34,7 @@
                         <v-btn
                             tile
                             href="mailto:ngzhicai98@gmail.com"
-                            class="white--text"
-                            style="background:#1f4287"
+                            class="white--text secondary"
                             x-large
                             elevation="5"
                         >
@@ -41,7 +46,10 @@
             </v-col>
             
             <v-col cols="12" md="10" class="my-5">
-                <h1 :class="titleClass + ' text-center white--text font-weight-bold'">
+                <h1 
+                    :class="titleClass"
+                    class="text-center white--text font-weight-bold"
+                >
                     <v-icon x-large color="white">mdi-account-group</v-icon>
                     My Socials
                 </h1>
@@ -54,13 +62,16 @@
                 :key="platform.name"
             >
                 <v-card 
-                    class="pa-5" 
-                    style="height:100%; background: #17b978;" 
+                    class="contrast pa-5" 
+                    style="height:100%;" 
                     elevation="10"
                     tile
                 >
-                    <v-card-title :class="titleClass + ' justify-center'" style="color:#071a52">
-                        <v-icon x-large class="mx-2" color="#071a52">{{ platform.icon }}</v-icon>
+                    <v-card-title 
+                        :class="titleClass" 
+                        class="justify-center primary--text"
+                    >
+                        <v-icon x-large class="mx-2" color="primary">{{ platform.icon }}</v-icon>
                         {{ platform.name }}
                     </v-card-title>
                     <v-card-actions>
@@ -69,8 +80,7 @@
                             tile
                             :href="platform.link"
                             target="_blank"
-                            class="white--text"
-                            style="background:#1f4287"
+                            class="white--text secondary"
                             elevation="5"
                             x-large
                         >

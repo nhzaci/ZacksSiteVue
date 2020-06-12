@@ -31,9 +31,7 @@
               v-for="img in project.allImg"
               :key="img"
               :src="require('../assets/' + img)"
-            >
-
-            </v-carousel-item>
+            ></v-carousel-item>
           </v-carousel>
           <v-card-title :class="titleClass">
             {{ title }}
@@ -79,8 +77,8 @@
               class="secondary my-2"
               elevation="5"
             >
-              <v-list-item-content :class="accentClass">
-                {{ proj.title }} <span class="font-italic">{{ proj.subtitle }}</span>
+              <v-list-item-content :class="accentClass" class="justify-center">
+                {{ proj.title }} <span class="font-italic font-weight-light">{{ proj.subtitle }}</span>
               </v-list-item-content>
             </v-list-item>
           </v-list>

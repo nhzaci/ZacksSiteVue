@@ -1,5 +1,5 @@
 <template>
-    <v-container class="ma-0 pa-0" style="background:#071a52; height:100%;" fluid>
+    <v-container class="ma-0 pa-0 primary" style="height:100%;" fluid>
         <v-row 
             class="pa-0 ma-0" 
             justify="center" 
@@ -8,9 +8,10 @@
 
                 <!-- Title -->
                 <h1 
-                    :class="titleClass + ' mb-10 mt-5'" 
-                    style="color: #a7ff83"
+                    :class="titleClass" 
+                    class="mb-10 mt-5 contrast2--text"
                     id="projects"
+
                 >
                     <span :class="titleClass">My Projects</span>
                 </h1>
@@ -24,8 +25,7 @@
                         :key="project.title"
                     >
                         <v-card
-                            class="ma-1"
-                            style="background: #17b978;"
+                            class="contrast ma-1"
                             elevation="5"
                             tile
                             dark
@@ -71,7 +71,7 @@
                                 <v-btn 
                                     tile
                                     elevation="3"
-                                    color="#1f4287" 
+                                    color="secondary" 
                                     :href="project.link"
                                     target="_blank"
                                 >
@@ -112,7 +112,7 @@
                 <v-row justify="end" class="my-5">
                     <v-col cols="12">
                         <v-pagination
-                            color="#1f4287" 
+                            color="secondary" 
                             circle
                             v-model="page"
                             :length="Math.ceil(projects.length / 4)"
@@ -131,12 +131,12 @@
         <!-- Work Experience -->
         <v-row 
             justify="center"
-            style="background:#1f4287"
+            class="secondary"
         >
             <v-col cols="12" md="10">
                 <v-card
                     class="pa-5 ma-5 white--text"
-                    style="background:#17b978"
+                    color="contrast"
                     tile
                     elevation="10"
                 >
@@ -155,11 +155,10 @@
                                 v-for="work in workExp"
                                 :key="work.title"
                                 elevation="5"
-                                class="my-3"
-                                style="background:#071a52;"
+                                class="primary my-3"
                             >
                                 <v-card-title
-                                    style="background:#071a52;color:white"
+                                    class="primary white--text"
                                 >
                                     <v-tooltip bottom>
                                         <template v-slot:activator="{ on }">
@@ -196,7 +195,7 @@
                         >
                             <v-timeline-item
                                 fill-dot
-                                color="#071a52"
+                                color="primary"
                                 v-for="work in workExp"
                                 :key="work.title"
                             >
@@ -204,10 +203,10 @@
                                     dark
                                     tile
                                     elevation="5"
-                                    style="background:#071a52;color:white"
+                                    class="primary white--text"
                                 >
                                     <v-card-title 
-                                        style="background:#071a52;color:white"
+                                        class="primary white--text"
                                     >
                                         <v-tooltip bottom>
                                             <template v-slot:activator="{ on }">

@@ -113,8 +113,7 @@
       <!-- Right Column -->
       <v-col cols="12" md="10">
         <v-card
-          class="pa-5 ma-5 white--text"
-          style="background:#1f4287"
+          class="pa-5 ma-5 white--text secondary"
           tile
           dark
           elevation="10"
@@ -305,8 +304,7 @@
     <v-row justify="center">
       <v-col cols="12" md="10">
         <v-card
-          class="pa-5 ma-5 white--text"
-          style="background:#17b978"
+          class="contrast pa-5 ma-5 white--text"
           tile
           elevation="10"
           id="accolades"
@@ -319,7 +317,7 @@
           <v-card-text>
             <v-row v-if="!$vuetify.breakpoint.mdAndUp">
               <v-card
-                color="#1f4287"
+                color="secondary"
                 tile
                 elevation="5"
                 class="my-2"
@@ -341,12 +339,12 @@
               <v-timeline-item
                 fill-dot
                 small
-                color="#1f4287"
+                color="secondary"
                 v-for="award in awards"
                 :key="award.subtitle"
               >
                 <v-card
-                  color="#1f4287"
+                  color="secondary"
                   tile
                   elevation="5"
                 >

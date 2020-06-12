@@ -9,12 +9,14 @@ export default new Vuetify({
       light: {
         primary: "#071a52",
         secondary: "#1f4287",
-        contrast: "#17b978"
+        contrast: "#17b978",
+        contrast2: "#a7ff83"
       },
       dark: {
         primary: "#071a52",
         secondary: "#1f4287",
-        contrast: "#17b978"
+        contrast: "#17b978",
+        contrast2: "#a7ff83"
       }
     }
   }
