@@ -1,96 +1,117 @@
 <template>
     <v-container class="ma-0 primary" style="height:100%;" fluid>
 
-        <v-row justify="center" class="py-5">
-            <v-col cols="12" md="10">
-                <h1 :class="titleClass + ' text-center white--text font-weight-bold'">
-                    <v-icon x-large color="white">mdi-message</v-icon>
-                    Let's Chat
-                </h1>
+        <v-row>
+            <!-- Contact form section commented out
+            <v-col cols="12" md="8">
+                <v-sheet
+                    color="secondary"
+                    height="100%"
+                    width="100%"
+                    class="pa-lg-10"
+                >
+                    <v-form>
+                        <label for="Name">Name</label>
+                        <input type="text" class="ma-2 pa-2 yellow" style="width:80%">
+                    </v-form>
+                </v-sheet>
             </v-col>
+            -->
+            <v-col cols="12">
+                <v-row justify="center" class="py-5">
+                    <v-col cols="12" md="10">
+                        <h1 :class="titleClass + ' text-center white--text font-weight-bold'">
+                            <v-icon x-large color="white">mdi-message</v-icon>
+                            Let's Chat
+                        </h1>
+                    </v-col>
 
-            <v-col cols="12" md="10">
-                <v-card 
-                    class="contrast pa-5" 
-                    style="height:100%"
-                    tile
-                    elevation="10"
-                >
-                    <v-card-title 
-                        :class="titleClass" 
-                        class="justify-center primary--text"
-                    >
-                        <v-icon x-large class="mx-2" color="primary">mdi-email</v-icon>
-                        Email
-                    </v-card-title>
-                    <v-card-text 
-                        :class="subtitleClass" 
-                        class="primary--text text-center"
-                    >
-                        ngzhicai98@gmail.com
-                    </v-card-text>
-                    <v-card-actions>
-                        <v-spacer></v-spacer>
-                        <v-btn
+                    <v-col cols="12" md="10">
+                        <v-card 
+                            class="contrast pa-5" 
+                            style="height:100%"
                             tile
-                            href="mailto:ngzhicai98@gmail.com"
-                            class="white--text secondary"
-                            x-large
-                            elevation="5"
+                            elevation="10"
                         >
-                            Let's Go
-                        </v-btn>
-                        <v-spacer></v-spacer>
-                    </v-card-actions>
-                </v-card>
-            </v-col>
-            
-            <v-col cols="12" md="10" class="my-5">
-                <h1 
-                    :class="titleClass"
-                    class="text-center white--text font-weight-bold"
-                >
-                    <v-icon x-large color="white">mdi-account-group</v-icon>
-                    My Socials
-                </h1>
-            </v-col>
+                            <v-card-title 
+                                :class="titleClass" 
+                                class="justify-center primary--text"
+                            >
+                                <v-icon x-large class="mx-2" color="primary">mdi-email</v-icon>
+                                Email
+                            </v-card-title>
+                            <v-card-text 
+                                :class="subtitleClass" 
+                                class="primary--text text-center"
+                            >
+                                ngzhicai98@gmail.com
+                            </v-card-text>
+                            <v-card-actions>
+                                <v-spacer></v-spacer>
+                                <v-btn
+                                    tile
+                                    href="mailto:ngzhicai98@gmail.com"
+                                    class="white--text secondary"
+                                    x-large
+                                    elevation="5"
+                                >
+                                    Let's Go
+                                </v-btn>
+                                <v-spacer></v-spacer>
+                            </v-card-actions>
+                        </v-card>
+                    </v-col>
+                    
+                    <v-col cols="12" md="10" class="my-5">
+                        <h1 
+                            :class="titleClass"
+                            class="text-center white--text font-weight-bold"
+                        >
+                            <v-icon x-large color="white">mdi-account-group</v-icon>
+                            My Socials
+                        </h1>
+                    </v-col>
 
-            <v-col 
-                cols="12" 
-                md="5"
-                v-for="platform in platforms"
-                :key="platform.name"
-            >
-                <v-card 
-                    class="contrast pa-5" 
-                    style="height:100%;" 
-                    elevation="10"
-                    tile
-                >
-                    <v-card-title 
-                        :class="titleClass" 
-                        class="justify-center primary--text"
+                    <v-col 
+                        cols="12" 
+                        md="5"
+                        v-for="platform in platforms"
+                        :key="platform.name"
                     >
-                        <v-icon x-large class="mx-2" color="primary">{{ platform.icon }}</v-icon>
-                        {{ platform.name }}
-                    </v-card-title>
-                    <v-card-actions>
-                        <v-spacer></v-spacer>
-                        <v-btn
+                        <v-card 
+                            class="contrast pa-5" 
+                            style="height:100%;" 
+                            elevation="10"
                             tile
-                            :href="platform.link"
-                            target="_blank"
-                            class="white--text secondary"
-                            elevation="5"
-                            x-large
                         >
-                            Let's Go
-                        </v-btn>
-                        <v-spacer></v-spacer>
-                    </v-card-actions>
-                </v-card>
+                            <v-card-title 
+                                :class="titleClass" 
+                                class="justify-center primary--text"
+                            >
+                                <v-icon x-large class="mx-2" color="primary">{{ platform.icon }}</v-icon>
+                                {{ platform.name }}
+                            </v-card-title>
+                            <v-card-actions>
+                                <v-spacer></v-spacer>
+                                <v-btn
+                                    tile
+                                    :href="platform.link"
+                                    target="_blank"
+                                    class="white--text secondary"
+                                    elevation="5"
+                                    x-large
+                                >
+                                    Let's Go
+                                </v-btn>
+                                <v-spacer></v-spacer>
+                            </v-card-actions>
+                        </v-card>
+                    </v-col>
+                </v-row>
+
             </v-col>
         </v-row>
+
     </v-container>
 </template>
 

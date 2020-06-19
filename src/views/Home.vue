@@ -322,7 +322,7 @@
                 elevation="5"
                 class="my-2"
                 v-for="(award,i) in awards"
-                :key="award.title+i"
+                :key="award.title+award.subtitle+i"
               >
                 <v-card-title class="white--text">
                   {{ award.title }}
@@ -340,8 +340,8 @@
                 fill-dot
                 small
                 color="secondary"
-                v-for="award in awards"
-                :key="award.subtitle"
+                v-for="(award, i) in awards"
+                :key="award.title+award.subtitle+i"
               >
                 <v-card
                   color="secondary"
@@ -397,7 +397,7 @@ export default {
     awards: [
       { title: 'Outstanding Contribution Award for CCA', subtitle: 'CJC, 2017' },
       { title: 'Edusave Certificate of Academic Achievement', subtitle: 'CJC, 2016' },
-      { title: 'Edusave Good Progress Award', subtitle: 'CJC, 2016' }, 
+      { title: 'Edusave Good Progress Award', subtitle: 'CJC, 2016' },  // Space to avoid duplicate keys
       { title: 'Edusave Scholarship', subtitle: 'HIHS, 2014' },
       { title: 'Edusave Scholarship', subtitle: 'HIHS, 2013' },
       { title: 'Edusave Certificate of Academic Achievement', subtitle: 'HIHS, 2012' }
