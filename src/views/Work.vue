@@ -255,9 +255,19 @@ export default {
         ]
     },
     data: () => ({
-        page: 1, //counts starting from 1
+        page: 1, // counts starting from 1
         loading: false,
         workExp: [
+            {
+                title: 'Software Engineer Intern',
+                icon: 'mdi-code-braces',
+                company: 'ScaleStack.ai',
+                duration: 'Jun 2020 - Jan 2021',
+                responsibilities: [
+                  'Developing a full stack SaaS with Angular and Firebase'
+                ],
+                avatar: ''
+            },
             {
                 title: 'Strategy and Planning Admin Asst',
                 icon: 'mdi-trending-up',
