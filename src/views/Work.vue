@@ -266,7 +266,7 @@ export default {
                 responsibilities: [
                   'Developing a HR Management Solution with a team of 7, using MongoDB, Express.js, React and Node.js with GraphQL for our backend',
                   'Billing Integration with Stripe with Webhooks set up to listen to Stripe event callbacks',
-                  'Scrum project management methodology employed to help the team work better together throgh sprints'
+                  'Scrum project management methodology employed to help the team work better together through sprints'
                 ],
                 avatar: ''
             },
