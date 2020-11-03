@@ -261,7 +261,7 @@ export default {
             {
                 title: 'Software Engineer Intern',
                 icon: 'mdi-code-braces-box',
-                company: 'ScaleStack.ai',
+                company: 'Gracet',
                 duration: 'Sep 2020 - Dec 2020',
                 responsibilities: [
                   'Developing a HR Management Solution with a team of 7, using MongoDB, Express.js, React and Node.js with GraphQL for our backend',
