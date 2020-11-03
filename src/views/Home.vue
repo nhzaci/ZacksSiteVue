@@ -378,16 +378,18 @@ export default {
   data: () => ({
     rating: 4,
     languages: [
+      { name: 'React.js', icon: 'mdi-react' },
       { name: 'Vue.js', icon: 'mdi-vuejs' },
-      { name: 'Nuxt.js', icon: 'mdi-nuxt' },
       { name: 'Node.js', icon: 'mdi-nodejs' },
       { name: 'Java', icon: 'mdi-language-java' },
       { name: 'JavaScript', icon: 'mdi-language-javascript' },
       { name: 'Python', icon: 'mdi-language-python' },
+      { name: 'Firebase', icon: 'mdi-firebase' },
       { name: 'Tableau', icon: 'mdi-view-dashboard' },
     ],
     languages2: [
-      { name: 'R', icon: 'mdi-language-r' },
+      { name: 'Angular', icon: 'mdi-angular' },
+      { name: 'GraphQL', icon: 'mdi-graphql' },
       { name: 'HTML 5', icon: 'mdi-language-html5' },
       { name: 'CSS', icon: 'mdi-language-css3' },
       { name: 'PHP', icon: 'mdi-language-php' },

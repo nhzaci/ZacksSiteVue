@@ -260,11 +260,26 @@ export default {
         workExp: [
             {
                 title: 'Software Engineer Intern',
-                icon: 'mdi-code-braces',
+                icon: 'mdi-code-braces-box',
                 company: 'ScaleStack.ai',
-                duration: 'Jun 2020 - Jan 2021',
+                duration: 'Sep 2020 - Dec 2020',
                 responsibilities: [
-                  'Developing a full stack SaaS with Angular and Firebase'
+                  'Developing a HR Management Solution with a team of 7, using MongoDB, Express.js, React and Node.js with GraphQL for our backend',
+                  'Billing Integration with Stripe with Webhooks set up to listen to Stripe event callbacks',
+                  'Scrum project management methodology employed to help the team work better together throgh sprints'
+                ],
+                avatar: ''
+            },
+            {
+                title: 'Software Engineer Intern',
+                icon: 'mdi-laptop',
+                company: 'ScaleStack.ai',
+                duration: 'Jun 2020 - Dec 2020',
+                responsibilities: [
+                  'Developed a full stack invoicing solution from scratch, live at ScaleStack.ai, with Angular, Firebase, Nest.js and Google Cloud Functions for our serverless backend',
+                  'Backend integration with PEPPOL Access Point, StoreCove to send invoices through the global PEPPOL network',
+                  'Billing integration with Stripe with Webhooks set up to listen to event callbacks',
+                  'Attained certification as a PEPPOL Service Provider by IMDA',
                 ],
                 avatar: ''
             },
