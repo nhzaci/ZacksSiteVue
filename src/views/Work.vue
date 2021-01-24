@@ -1,6 +1,129 @@
 <template>
   <v-container class="ma-0 pa-0 primary" style="height: 100%" fluid>
-    <v-row class="pa-0 ma-0" justify="center">
+    <!-- Work Experience -->
+    <v-row justify="center" class="primary">
+      <v-col cols="12" md="10">
+        <v-card
+          class="pa-5 ma-5 white--text"
+          color="contrast"
+          tile
+          elevation="10"
+        >
+          <v-card-title :class="titleClass" id="experience">
+            Work Experience
+          </v-card-title>
+          <v-card-text class="ma-0 pa-0">
+            <!-- Simple cards shown on smaller viewports -->
+            <v-container v-if="$vuetify.breakpoint.mdAndDown">
+              <v-card
+                dark
+                tile
+                v-for="work in workExp"
+                :key="work.title"
+                elevation="5"
+                class="primary my-3"
+              >
+                <v-card-title class="primary white--text flex s">
+                  <v-tooltip bottom>
+                    <template v-slot:activator="{ on }">
+                      <span v-on="on" @click="on" class="text-truncate">
+                        <v-icon class="mx-2">{{ work.icon }}</v-icon>
+                        {{ work.title }}
+                      </span>
+                    </template>
+                    <span>{{ work.title }}</span>
+                  </v-tooltip>
+                </v-card-title>
+                <v-card-text>
+                  <p class="ms-2 font-weight-bold subtitle-1" style="margin: 0">
+                    {{ work.dept }}
+                  </p>
+                  <p class="ms-2 font-weight-bold subtitle-1" style="margin: 0">
+                    {{ work.company }}
+                  </p>
+                  <p class="ms-2 font-weight-bold subtitle-1">
+                    {{ work.duration }}
+                  </p>
+                  <ul v-if="work.responsibilities">
+                    <li v-for="resp in work.responsibilities" :key="resp">
+                      {{ resp }}
+                    </li>
+                  </ul>
+                  <div v-else>
+                    <p v-for="story in work.stories" :key="story">
+                      {{ story }}
+                    </p>
+                  </div>
+                </v-card-text>
+              </v-card>
+            </v-container>
+            <!-- End of simple cards shown on smaller viewports -->
+
+            <!-- Timeline shown on medium and up viewports -->
+            <v-timeline
+              :dense="$vuetify.breakpoint.mdAndDown"
+              v-if="$vuetify.breakpoint.mdAndUp"
+            >
+              <v-timeline-item
+                fill-dot
+                color="primary"
+                v-for="work in workExp"
+                :key="work.title"
+              >
+                <v-card dark tile elevation="5" class="primary white--text">
+                  <v-card-title class="primary white--text">
+                    <v-tooltip bottom>
+                      <template v-slot:activator="{ on }">
+                        <span v-on="on" class="text-truncate">
+                          <v-icon class="mx-2">{{ work.icon }}</v-icon>
+                          {{ work.title }}
+                        </span>
+                      </template>
+                      <span>{{ work.title }}</span>
+                    </v-tooltip>
+                  </v-card-title>
+                  <v-card-text>
+                    <p
+                      class="ms-2 font-weight-bold subtitle-1"
+                      style="margin: 0"
+                    >
+                      {{ work.dept }}
+                    </p>
+                    <p
+                      class="ms-2 font-weight-bold subtitle-1"
+                      style="margin: 0"
+                    >
+                      {{ work.company }}
+                    </p>
+                    <p class="ms-2 font-weight-bold subtitle-1">
+                      {{ work.duration }}
+                    </p>
+                    <ul v-if="work.responsibilities">
+                      <li v-for="resp in work.responsibilities" :key="resp">
+                        {{ resp }}
+                      </li>
+                    </ul>
+                    <div v-else>
+                      <p
+                        v-for="story in work.stories"
+                        :key="story"
+                        class="ml-2"
+                      >
+                        {{ story }}
+                      </p>
+                    </div>
+                  </v-card-text>
+                </v-card>
+              </v-timeline-item>
+            </v-timeline>
+            <!-- End of timeline shown on medium and up viewports -->
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+
+    <!-- Projects -->
+    <v-row class="secondary pa-0 ma-0" justify="center">
       <v-col cols="12" md="10">
         <!-- Title -->
         <h1
@@ -115,114 +238,6 @@
         <!-- End of pagination -->
       </v-col>
     </v-row>
-
-    <!-- Work Experience -->
-    <v-row justify="center" class="secondary">
-      <v-col cols="12" md="10">
-        <v-card
-          class="pa-5 ma-5 white--text"
-          color="contrast"
-          tile
-          elevation="10"
-        >
-          <v-card-title :class="titleClass" id="experience">
-            Work Experience
-          </v-card-title>
-          <v-card-text class="ma-0 pa-0">
-            <!-- Simple cards shown on smaller viewports -->
-            <v-container v-if="$vuetify.breakpoint.mdAndDown">
-              <v-card
-                dark
-                tile
-                v-for="work in workExp"
-                :key="work.title"
-                elevation="5"
-                class="primary my-3"
-              >
-                <v-card-title class="primary white--text">
-                  <v-tooltip bottom>
-                    <template v-slot:activator="{ on }">
-                      <span v-on="on" @click="on" class="text-truncate">
-                        <v-icon class="mx-2">{{ work.icon }}</v-icon>
-                        {{ work.title }}
-                      </span>
-                    </template>
-                    <span>{{ work.title }}</span>
-                  </v-tooltip>
-                </v-card-title>
-                <v-card-text>
-                  <p class="ms-2 font-weight-bold subtitle-1" style="margin: 0">
-                    {{ work.dept }}
-                  </p>
-                  <p class="ms-2 font-weight-bold subtitle-1" style="margin: 0">
-                    {{ work.company }}
-                  </p>
-                  <p class="ms-2 font-weight-bold subtitle-1">
-                    {{ work.duration }}
-                  </p>
-                  <ul>
-                    <li v-for="resp in work.responsibilities" :key="resp">
-                      {{ resp }}
-                    </li>
-                  </ul>
-                </v-card-text>
-              </v-card>
-            </v-container>
-            <!-- End of simple cards shown on smaller viewports -->
-
-            <!-- Timeline shown on medium and up viewports -->
-            <v-timeline
-              :dense="$vuetify.breakpoint.mdAndDown"
-              v-if="$vuetify.breakpoint.mdAndUp"
-            >
-              <v-timeline-item
-                fill-dot
-                color="primary"
-                v-for="work in workExp"
-                :key="work.title"
-              >
-                <v-card dark tile elevation="5" class="primary white--text">
-                  <v-card-title class="primary white--text">
-                    <v-tooltip bottom>
-                      <template v-slot:activator="{ on }">
-                        <span v-on="on" class="text-truncate">
-                          <v-icon class="mx-2">{{ work.icon }}</v-icon>
-                          {{ work.title }}
-                        </span>
-                      </template>
-                      <span>{{ work.title }}</span>
-                    </v-tooltip>
-                  </v-card-title>
-                  <v-card-text>
-                    <p
-                      class="ms-2 font-weight-bold subtitle-1"
-                      style="margin: 0"
-                    >
-                      {{ work.dept }}
-                    </p>
-                    <p
-                      class="ms-2 font-weight-bold subtitle-1"
-                      style="margin: 0"
-                    >
-                      {{ work.company }}
-                    </p>
-                    <p class="ms-2 font-weight-bold subtitle-1">
-                      {{ work.duration }}
-                    </p>
-                    <ul>
-                      <li v-for="resp in work.responsibilities" :key="resp">
-                        {{ resp }}
-                      </li>
-                    </ul>
-                  </v-card-text>
-                </v-card>
-              </v-timeline-item>
-            </v-timeline>
-            <!-- End of timeline shown on medium and up viewports -->
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
   </v-container>
 </template>
 
@@ -245,14 +260,13 @@ export default {
     loading: false,
     workExp: [
       {
-        title: "CS2030 Teaching Assistant",
-        icon: "human-male-board",
-        company: "National University of Singapore",
-        duration: "Aug 2020 - May 2021",
-        responsibilities: [
-          "Teaching assistant for CS2030: Programming Methodology II",
-          "The module aims to equip students with skills in two modern programming paradigms, Object-Oriented Programming and Functional Programming in Java",
-          "Topics include objects and classes, composition, association, inheritance, interface, polymorphism, abstract classes, dynamic binding, lambda expression, effect-free programming, first class functions, closures, continuations and monads.",
+        title: "Co-founder, CTO",
+        icon: "mdi-code-braces-box",
+        company: "Chow",
+        duration: "Dec 2020 - Present",
+        stories: [
+          "In every Internet Minute, 347,222 stories are posted by Instagram users. With an increasing volume of untouched user-generated content, how might we be able to tap onto this fragmented F&B market to engage and connect with indecisive diners better?",
+          "Introducing Chow! Chow provides algorithmic suggestions to consumers for restaurants through our AI algorithm, allowing user-generated video content to have a greater outreach for indecisive diners to save time and make food choices specifically catered to them.",
         ],
         avatar: "",
       },
@@ -292,6 +306,18 @@ export default {
           "Developed Python scripts for data verification",
           "Created PowerPoint decks for key C-suite executives",
           "Created Excel spreadsheets to optimise reporting flow",
+        ],
+        avatar: "",
+      },
+      {
+        title: "CS2030 Teaching Assistant",
+        icon: "mdi-billboard",
+        company: "National University of Singapore",
+        duration: "Aug 2020 - May 2021",
+        responsibilities: [
+          "Teaching assistant for CS2030: Programming Methodology II",
+          "The module aims to equip students with skills in two modern programming paradigms, Object-Oriented Programming and Functional Programming in Java",
+          "Topics include objects and classes, composition, association, inheritance, interface, polymorphism, abstract classes, dynamic binding, lambda expression, effect-free programming, first class functions, closures, continuations and monads.",
         ],
         avatar: "",
       },
