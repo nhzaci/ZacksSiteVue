@@ -47,6 +47,8 @@
               tile
               elevation="5"
               color="contrast"
+              :href="project.link"
+              target="_blank"
             >
               Visit
             </v-btn>
