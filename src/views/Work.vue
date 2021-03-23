@@ -260,6 +260,20 @@ export default {
     loading: false,
     workExp: [
       {
+        title: "QA Software Engineer Intern",
+        icon: "mdi-cog-box",
+        company: "Affinidi",
+        duration: "Mar 2021 - Jul 2021 (Current)",
+        responsibilities: [
+          "Developed E2E testing with functional web UI and API tests with a team of 4 including the QA Lead",
+          "Employed agile methodologies with Jira and GitLab for version control",
+          "Set up CI / CD for test automation pipeline on GitLab",
+          "Worked with engineering team to understand high priority areas where test coverage needs to be improved",
+        ],
+        avatar: "",
+      },
+      /*
+      {
         title: "Co-founder, CTO",
         icon: "mdi-code-braces-box",
         company: "Chow",
@@ -270,8 +284,9 @@ export default {
         ],
         avatar: "",
       },
+      */
       {
-        title: "Software Engineer Intern",
+        title: "Full Stack Software Engineer Intern",
         icon: "mdi-code-braces-box",
         company: "Gracet",
         duration: "Sep 2020 - Jan 2021",
@@ -283,10 +298,10 @@ export default {
         avatar: "",
       },
       {
-        title: "Software Engineer Intern",
+        title: "Full Stack Software Engineer Intern",
         icon: "mdi-laptop",
         company: "ScaleStack.ai",
-        duration: "Jun 2020 - Jan 2021",
+        duration: "Jun 2020 - Sep 2021",
         responsibilities: [
           "Developed an invoicing solution, live at ScaleStack.ai, with Angular, Firebase, Nest.js and Google Cloud Functions for our serverless backend",
           "Developed full stack integration with PEPPOL Access Point, StoreCove to send invoices through global PEPPOL network",
@@ -309,6 +324,7 @@ export default {
         ],
         avatar: "",
       },
+      /*
       {
         title: "CS2030 Teaching Assistant",
         icon: "mdi-billboard",
@@ -321,6 +337,7 @@ export default {
         ],
         avatar: "",
       },
+      */
     ],
   }),
   methods: {
